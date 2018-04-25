@@ -9,9 +9,9 @@ public interface UserMapper {
 
 	public int delete(int id);
 	
-	public int save(User user);
+	public int insert(User user);
 
-	public User getEntity(int id);
+	public User selectByPk(int id);
 
 	public int update(User user);
 }
