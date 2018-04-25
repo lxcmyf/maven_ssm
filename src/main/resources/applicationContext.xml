@@ -20,9 +20,8 @@
 		<property name="location" value="classpath:db.properties"/>
 	</bean>
 	
-	<!-- 配置sql会话模板 -->
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-    	<constructor-arg index="0" ref="sqlSessionFactory"/>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="cn.lxc.mapper"/>
     </bean>
     
 	<!-- 配置数据源 -->
@@ -36,13 +35,7 @@
 	<!-- 配置sql会话工厂 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configLocation" value="classpath:mybatis.cfg.xml"></property> 
-   <!-- <property name="mapperLocations" value="classpath*:com/test/UserMapper.xml"></property> -->
-   <!--	<property name="mapperLocations">
-			<array>
-				<value>classpath:cn/lxc/vo/user.mapper.xml</value>sqlMapConfig.xml
-			</array>
-		</property> -->
+		<property name="configLocation" value="classpath:SqlMapperConfig.xml"></property> 
 	</bean>
 	
 	<!-- 配置事务管理器 -->
