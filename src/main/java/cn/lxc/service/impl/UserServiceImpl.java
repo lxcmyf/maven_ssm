@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService{
 	}
 	@Override
 	public int save(User user) {
-		return userMapper.save(user);
+		return userMapper.insert(user);
 		
 	}
 	@Override
 	public User showInfoById(int id) {
-		return userMapper.getEntity(id);
+		return userMapper.selectByPk(id);
 	}
 	@Override
 	public int update(User user) {
